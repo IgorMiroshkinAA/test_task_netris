@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import {render, screen, fireEvent} from '@testing-library/react';
 import VideoPlayer from './VideoPlayer';
-import { IEvent } from '../../utils/types';
+import {IEvent} from '../../utils/types';
 
 const mockEvents: IEvent[] = [
     {
@@ -15,11 +15,11 @@ const mockEvents: IEvent[] = [
     }
 ];
 
-test('renders video player and handles event overlays', () => {
-    render(<VideoPlayer currentTime={0} events={mockEvents} />);
+test('renders video player', () => {
+    render(<VideoPlayer currentTime={0} events={mockEvents}/>);
 
     const videoElement = screen.getByTestId('video-player');
     expect(videoElement).toBeInTheDocument();
 
-    fireEvent.timeUpdate(videoElement, { target: { currentTime: 3.012 } });
+    fireEvent.timeUpdate(videoElement, {target: {currentTime: 3.012}});
 });
